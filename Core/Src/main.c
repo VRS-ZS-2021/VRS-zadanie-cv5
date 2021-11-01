@@ -104,9 +104,11 @@ int main(void)
   {
 	  if (switch_state)
 	  	  {
-	  		  GPIOA->BSRR |= GPIO_BSRR_BS_4;
+		  	  LL_GPIO_SetOutputPin(GPIO_PORT_LED, GPIO_PIN_LED_MASK);
+	  		  //GPIOA->BSRR |= GPIO_BSRR_BS_4;
 	  		  for(uint16_t i=0; i<0xFF00; i++){}
-	  		  GPIOA->BRR |= GPIO_BRR_BR_4;
+		  	  LL_GPIO_ResetOutputPin(GPIO_PORT_LED, GPIO_PIN_LED_MASK);
+	  		  //GPIOA->BRR |= GPIO_BRR_BR_4;
 	  		  for(uint16_t i=0; i<0xFF00; i++){}
 	  	  }
 	  	  else
@@ -157,7 +159,8 @@ uint8_t checkButtonState(GPIO_TypeDef* PORT, uint8_t PIN, uint8_t edge, uint8_t 
 	//type your code for "checkButtonState" implementation here:
 	uint8_t detection = 0, timeout = 0;
 	while(timeout <= samples_window){ // cyklus bezi pokial nedocita potrebny pocet vzoriek a ak nahodou nastane detekcia funkcia sa ukonci a vrati 1
-		uint8_t actual_value= (PORT -> IDR & (1 << PIN));
+		//uint8_t actual_value= (PORT -> IDR & (1 << PIN));
+		uint8_t actual_value= (LL_GPIO_ReadInputPort(GPIO_PORT_BUTTON) & (1 << PIN));
 		if((actual_value && edge) || (!(actual_value) && !(edge))) {
 			detection++;
 		}

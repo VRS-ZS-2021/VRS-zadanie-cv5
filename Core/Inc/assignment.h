@@ -14,13 +14,17 @@
 #define		GPIO_PORT_BUTTON				GPIOB
 #define		GPIO_PIN_BUTTON					4
 
+#define		GPIO_PORT_LED					GPIOA
+#define		GPIO_PIN_LED					4
+#define		GPIO_PIN_LED_MASK				GPIO_BSRR_BS_4
+
 // defines for "checkButtonState"
 #define		TRIGGER_RISE					1
 #define		TRIGGER_FALL					0
 
 #define		BUTTON_EXTI_TRIGGER				TRIGGER_FALL
-#define		BUTTON_EXTI_SAMPLES_WINDOW		400
-#define		BUTTON_EXTI_SAMPLES_REQUIRED	300
+#define		BUTTON_EXTI_SAMPLES_WINDOW		(uint8_t)(400)
+#define		BUTTON_EXTI_SAMPLES_REQUIRED	(uint8_t)(300)
 
 
 /**
