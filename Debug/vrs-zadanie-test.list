@@ -1,5 +1,5 @@
 
-zadanie_4_PP.elf:     file format elf32-littlearm
+vrs-zadanie-test.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  000143f4  00000000  00000000  00024aa8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00003222  00000000  00000000  00038e9c  2**0
+ 18 .debug_line   0000331e  00000000  00000000  00038e9c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0006de7d  00000000  00000000  0003c0be  2**0
+ 19 .debug_str    0006de79  00000000  00000000  0003c1ba  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  000a9f3b  2**0
+ 20 .comment      00000053  00000000  00000000  000aa033  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000ec0  00000000  00000000  000a9f90  2**2
+ 21 .debug_frame  00000ec0  00000000  00000000  000aa088  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -229,7 +229,7 @@ __STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t P
 
   return (
            ((PreemptPriority & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL)) << SubPriorityBits) |
- 80002a8:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+ 80002a8:	f04f 32ff 	mov.w	r2, #4294967295
  80002ac:	69bb      	ldr	r3, [r7, #24]
  80002ae:	fa02 f303 	lsl.w	r3, r2, r3
  80002b2:	43da      	mvns	r2, r3
@@ -238,7 +238,7 @@ __STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t P
  80002b8:	697b      	ldr	r3, [r7, #20]
  80002ba:	409a      	lsls	r2, r3
            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
- 80002bc:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
+ 80002bc:	f04f 31ff 	mov.w	r1, #4294967295
  80002c0:	697b      	ldr	r3, [r7, #20]
  80002c2:	fa01 f303 	lsl.w	r3, r1, r3
  80002c6:	43d9      	mvns	r1, r3
@@ -740,7 +740,7 @@ void MX_GPIO_Init(void)
  80005f4:	2300      	movs	r3, #0
  80005f6:	617b      	str	r3, [r7, #20]
            ((PreemptPriority & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL)) << SubPriorityBits) |
- 80005f8:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+ 80005f8:	f04f 32ff 	mov.w	r2, #4294967295
  80005fc:	69bb      	ldr	r3, [r7, #24]
  80005fe:	fa02 f303 	lsl.w	r3, r2, r3
  8000602:	43da      	mvns	r2, r3
@@ -749,7 +749,7 @@ void MX_GPIO_Init(void)
  8000608:	697b      	ldr	r3, [r7, #20]
  800060a:	409a      	lsls	r2, r3
            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
- 800060c:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
+ 800060c:	f04f 31ff 	mov.w	r1, #4294967295
  8000610:	697b      	ldr	r3, [r7, #20]
  8000612:	fa01 f303 	lsl.w	r3, r1, r3
  8000616:	43d9      	mvns	r1, r3
@@ -1128,7 +1128,7 @@ int main(void)
  8000822:	f7ff fecf 	bl	80005c4 <NVIC_EncodePriority>
  8000826:	4603      	mov	r3, r0
  8000828:	4619      	mov	r1, r3
- 800082a:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+ 800082a:	f04f 30ff 	mov.w	r0, #4294967295
  800082e:	f7ff fe9f 	bl	8000570 <__NVIC_SetPriority>
   /* USER CODE BEGIN Init */
 
