@@ -113,7 +113,7 @@ int main(void)
 	  	  }
 	  	  else
 	  	  {
-	  		LL_GPIO_ResetOutputPin(GPIO_PORT_LED, GPIO_PIN_LED_MASK);
+	  		  LL_GPIO_ResetOutputPin(GPIO_PORT_LED, GPIO_PIN_LED_MASK);
 	  		  //GPIOB->BRR |= GPIO_BRR_BR_3;
 	  	  }
     /* USER CODE END WHILE */
@@ -178,6 +178,7 @@ uint8_t checkButtonState(GPIO_TypeDef* PORT, uint8_t PIN, uint8_t edge, uint8_t 
 	if (((timeout > samples_window) && (detection != samples_required))){ //ak cyklus dobehol a nenapocitali sme dostatocny pocet vzoriek iducich po sebe vrati 0
 		return 0;
 	}
+	return 0;
 }
 /* USER CODE BEGIN 4 */
 
@@ -204,6 +205,7 @@ void EXTI4_IRQHandler(void)
 		//type your code for pending register flag clear here:
 	EXTI->PR |= (EXTI_PR_PIF4);
 }
+
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
