@@ -113,7 +113,8 @@ int main(void)
 	  	  }
 	  	  else
 	  	  {
-	  		  GPIOB->BRR |= GPIO_BRR_BR_3;
+	  		LL_GPIO_ResetOutputPin(GPIO_PORT_LED, GPIO_PIN_LED_MASK);
+	  		  //GPIOB->BRR |= GPIO_BRR_BR_3;
 	  	  }
     /* USER CODE END WHILE */
 
