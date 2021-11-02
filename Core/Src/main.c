@@ -203,7 +203,8 @@ void EXTI4_IRQHandler(void)
 	/* Clear EXTI4 pending register flag */
 
 		//type your code for pending register flag clear here:
-	EXTI->PR |= (EXTI_PR_PIF4);
+	//EXTI->PR |= (EXTI_PR_PIF4);
+	LL_EXTI_ClearFlag_0_31(EXTI_PR_PIF4);
 }
 
 void Error_Handler(void)
